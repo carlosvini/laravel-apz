@@ -6,6 +6,7 @@ use Request;
 use App\Http\Requests\ArticleRequest;
 use App\Http\Controllers\Controller;
 use App\Article;
+use App\Author;
 
 class ArticlesController extends Controller
 {
@@ -24,8 +25,9 @@ class ArticlesController extends Controller
     public function create()
     {
         $article = new Article;
+        $authors = Author::lists('name', 'id')->all();
 
-        return view('articles.create', compact('article'));
+        return view('articles.create', compact('article', 'authors'));
     }
 
     public function store(ArticleRequest $request)
@@ -50,7 +52,9 @@ class ArticlesController extends Controller
 
     public function edit(Article $article)
     {
-        return view('articles.edit', compact('article'));
+        $authors = Author::lists('name', 'id')->all();
+
+        return view('articles.edit', compact('article', 'authors'));
     }
 
     public function update(ArticleRequest $request, Article $article)
