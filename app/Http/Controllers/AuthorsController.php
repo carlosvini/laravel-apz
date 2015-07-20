@@ -29,7 +29,7 @@ class AuthorsController extends Controller
     public function store(AuthorRequest $request)
     {
         $author = Author::create($request->all());
-
+        session()->flash('flash_message', 'Author was stored with success');
         if (Request::wantsJson()) {
             return $author;
         } else {
@@ -54,7 +54,7 @@ class AuthorsController extends Controller
     public function update(AuthorRequest $request, Author $author)
     {
         $author->update($request->all());
-
+        session()->flash('flash_message', 'Author was updated with success');
         if (Request::wantsJson()) {
             return $author;
         } else {
@@ -65,7 +65,7 @@ class AuthorsController extends Controller
     public function destroy(Author $author)
     {
         $deleted = $author->delete();
-
+        session()->flash('flash_message', 'Author was removed with success');
         if (Request::wantsJson()) {
             return (string) $deleted;
         } else {
