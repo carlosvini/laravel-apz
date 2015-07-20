@@ -15,5 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('articles.recommendations', 'RecommendationsController', ['only' => ['create', 'store']]);
 Route::resource('articles', 'ArticlesController');
 Route::resource('authors', 'AuthorsController');
