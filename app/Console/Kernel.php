@@ -15,7 +15,9 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \App\Console\Commands\Inspire::class,
         \App\Console\Commands\WeatherUpdate::class,
+        \App\Console\Commands\DbTruncate::class,
     ];
+
 
     /**
      * Define the application's command schedule.
