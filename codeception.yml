@@ -12,6 +12,11 @@ settings:
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+coverage:
+    enabled: true
+    c3_url: 'http://localhost:8000'
+    include:
+        - app/*
 modules:
     config:
         Db:

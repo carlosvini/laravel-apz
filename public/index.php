@@ -35,6 +35,9 @@ require __DIR__.'/../bootstrap/autoload.php';
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
+if (env('APP_ENV') == 'testing') {
+    require __DIR__.'/../c3.php';
+}
 /*
 |--------------------------------------------------------------------------
 | Run The Application
